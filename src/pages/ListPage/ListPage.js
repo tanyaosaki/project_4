@@ -4,11 +4,8 @@ import store from '../../redux/store';
 
 class ListPage extends Component {
     state = {
-        movies: [
-            //{ title: 'The Godfather', year: 1972, imdbID: 'tt0068646' }
-        ],
+        movies: [],
         title: '',
-        //idList: '',
     }
 
     componentDidMount() {
