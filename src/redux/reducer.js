@@ -2,7 +2,7 @@ const instalState = {
     searchLine: [],
     movies: [],
     favMovies: [],
-    idList:'',
+    idList: '',
 }
 
 function reduser(state = instalState, action) {
@@ -32,12 +32,16 @@ function reduser(state = instalState, action) {
                 favMovies: arr,
             }
             break;
-            //case 'DELITE_FAVS':
-            //    return state,
-                    //favMovies: action.payload.favMovies,
-            //    }
-            
-            //    break;
+        case 'DELETE_FROM_FAVS':
+            const favs = [...state.favMovies];
+            const newFilms = favs.filter(
+                item => item.id !== action.payload.id
+            );
+            return {
+                ...state,
+                favMovies: newFilms,
+            };
+            break;
         case 'GET_LIST_ID':
             return {
                 ...state,
